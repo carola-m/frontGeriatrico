@@ -13,7 +13,6 @@ button{
     text-align:center;
     text-decoration: none;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    display:inline-block;
     color: #FFF;
     padding: 10px 30px;
     white-space: nowrap;
@@ -27,6 +26,7 @@ button{
     -o-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
     background-color: rgb(225, 224, 207);
+    width: 300px;
     
 }
 
@@ -36,7 +36,7 @@ button{
   font-size: 15px;
 }
 button:hover{
-  background-color: rgb(249, 147, 222); 
+  background-color: rgb(240, 226, 236); 
   cursor: pointer
 }
   

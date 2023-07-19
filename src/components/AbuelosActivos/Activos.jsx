@@ -3,9 +3,15 @@ import Navbar from '../Nav/Navbar'
 
 function Activos() {
   return (
-    <div>Activos
+    <>
     <Navbar/>
+    <div>
+
+    
+
+
     </div>
+    </>
   )
 }
 

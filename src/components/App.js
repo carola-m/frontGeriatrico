@@ -6,6 +6,8 @@ import { Route, Routes, useNavigate } from 'react-router-dom';
 import { API } from '../Services/Api';
 import Ingresos from './Ingresos/Ingresos';
 import Login from './Login/Login';
+import Activos from './AbuelosActivos/Activos';
+import Pasivos from './Pasivos/Pasivos';
 
 
 function App() {
@@ -57,6 +59,9 @@ return(<div>
 
 <Route path="/" element={<Home/>}/>
 <Route path="/ingresos" element={<Ingresos/>}/>
+<Route path="/activos" element={<Activos/>}/>
+<Route path="/inactivos" element={<Pasivos/>}/>
+<Route path="/login" element={<Login/>}/>
 </Routes>
 </div>)
 }

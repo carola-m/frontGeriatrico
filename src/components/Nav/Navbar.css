@@ -1,11 +1,13 @@
 .nav{
     display: flex;
     justify-content: space-between;
+    background-color: rgb(188, 236, 250);
     
 }
 .div-nav{ 
 
     margin-right: 30px;
+    
 }
 ul{
     display: flex;
@@ -15,7 +17,9 @@ ul{
 .li{
     text-decoration: none;
     list-style: none;
+    color: black;
 }
 .li:hover{
     text-decoration: underline aliceblue;
+
 }

@@ -7,7 +7,7 @@ const Home = () =>{
 
     return (
         <div className='contenedor'>
-        <h3>Hogar San Vicente</h3>
+        <h1>Bienvenido al portal de consultas e ingresos de abuelos del Hogar San Vicente</h1>
         <button><Link className='link' to="/ingresos">INGRESAR ABUELO</Link></button>
         <button><Link className='link' to="/activos">ABUELOS ACTIVOS</Link></button>
         <button><Link  className='link'to="/inactivos">ABUELOS INACTIVOS</Link></button>
