@@ -1,0 +1,21 @@
+.nav{
+    display: flex;
+    justify-content: space-between;
+    
+}
+.div-nav{ 
+
+    margin-right: 30px;
+}
+ul{
+    display: flex;
+    list-style: none;
+    gap: 10px;
+}
+.li{
+    text-decoration: none;
+    list-style: none;
+}
+.li:hover{
+    text-decoration: underline aliceblue;
+}
