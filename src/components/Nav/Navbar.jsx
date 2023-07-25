@@ -12,7 +12,7 @@ const Navbar = () => {
                 <li><Link className='li' to="/">Inicio</Link></li>
                 <li><Link className='li' to="/ingresos">Ingresar abuelo</Link></li>
                 <li><Link className='li' to="/activos">Abuelos activos</Link></li>
-                <li><Link className='li' to="/inactivos">Abuelos inactivos</Link></li>
+                <li><Link className='li' to="/pasivos">Abuelos inactivos</Link></li>
                 </ul>
                 </div>
                 <div className='div-nav'>

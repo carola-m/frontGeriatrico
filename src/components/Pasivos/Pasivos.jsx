@@ -3,7 +3,7 @@ import Navbar from '../Nav/Navbar'
 
 function Pasivos() {
   return (
-    <div>Pasivos
+    <div>
     <Navbar/>
     </div>
   )

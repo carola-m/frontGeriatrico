@@ -8,10 +8,14 @@ import Ingresos from './Ingresos/Ingresos';
 import Login from './Login/Login';
 import Activos from './AbuelosActivos/Activos';
 import Pasivos from './Pasivos/Pasivos';
+import Detail from './Detail/Detail';
+
 
 
 function App() {
   const [listaAbuelos, setListaAbuelos] = useState ([]);
+ 
+  
  
   const url = "http://localhost:3000/abuelo";
   useEffect(() => {
@@ -19,12 +23,15 @@ function App() {
    axios.get(url).then(
      (resp) => {
        setListaAbuelos(resp.data);
+       console.log(resp.data);
        
      },
      (error) => {
        console.log(error);
      }
    );
+
+
  }, []);
 
 
@@ -53,14 +60,16 @@ const loginUser = (formData) => {
     });
 };
 
-return(<div>
+return(
+
+<div>
 
 <Routes>
-
 <Route path="/" element={<Home/>}/>
 <Route path="/ingresos" element={<Ingresos/>}/>
-<Route path="/activos" element={<Activos/>}/>
-<Route path="/inactivos" element={<Pasivos/>}/>
+<Route path="/activos" element={<Activos abuelos={listaAbuelos}/>}/>
+<Route path="/activos/:nombre" element={<Detail abuelos={listaAbuelos}/>}/>
+<Route path="/pasivos" element={<Pasivos abuelos={listaAbuelos}/>}/>
 <Route path="/login" element={<Login/>}/>
 </Routes>
 </div>)
