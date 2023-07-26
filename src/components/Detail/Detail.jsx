@@ -50,9 +50,11 @@ const Detail=({abuelos}) =>{
         <p>Foto del dorso del documento: <img src={findActivos.documentoDorso} width={300} height={200} alt='foto' /></p> 
         <p>Foto del frente del carnet obra social: <img src={findActivos.prepagaFrente} width={300} height={200}alt='foto' /></p> 
         <p>Foto del dorso del carnet obra social: <img src={findActivos.prepagaDorso} width={300} height={200} alt='foto' /></p> 
+        <p>Estado: {findActivos.estado}</p>
         <p>Comentarios: {findActivos.comentario}</p>
     </div>
     <button onClick={handleDeleteClick}>Eliminar</button>
+    <button>Modificar</button>
     </div>
 
   );

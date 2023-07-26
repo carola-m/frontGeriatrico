@@ -70,6 +70,7 @@ return(
 <Route path="/activos" element={<Activos abuelos={listaAbuelos}/>}/>
 <Route path="/activos/:nombre" element={<Detail abuelos={listaAbuelos}/>}/>
 <Route path="/pasivos" element={<Pasivos abuelos={listaAbuelos}/>}/>
+<Route path="/pasivos/:nombre" element={<Detail abuelos={listaAbuelos}/>}/>
 <Route path="/login" element={<Login/>}/>
 </Routes>
 </div>)

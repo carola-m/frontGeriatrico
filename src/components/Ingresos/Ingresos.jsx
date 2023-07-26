@@ -27,6 +27,7 @@ const initial_state = {
     prepagaFrente:"",
     prepagaDorso: "",
     comentario: "", 
+    estado: "",
   
 }
 const Ingresos = (value) => {
@@ -85,6 +86,7 @@ const Ingresos = (value) => {
     formData.append ('prepagaFrente', imagen.prepagaFrente)
     formData.append ('prepagaDorso', imagen.prepagaDorso)
     formData.append ('comentario', formState.comentario)
+    formData.append ('estado', formState.estado)
 
     axios.post('http://localhost:3000/abuelo', formData)
           .then((res) => {
@@ -176,6 +178,9 @@ return (
 
   <label htmlFor="comentario">Comentario:</label>
   <textarea id="comentario" name="comentario" onChange={handleInput} value={formState.comentario}></textarea>
+
+  <label htmlFor="estado">Estado:</label>
+  <input type="text" id="estado" name="estado" placeholder='activo o inactivo' onChange={handleInput} value={formState.estado}/>
   
   <input className='boton' type="submit" value="Enviar" name='submit' id='boton' onClick={handleClick}/>
   </form>
