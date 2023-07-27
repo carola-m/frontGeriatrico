@@ -1,8 +1,9 @@
 
-import { useParams} from 'react-router-dom'
+import { Link, useParams} from 'react-router-dom'
 import './Detail.css'
 import Navbar from '../Nav/Navbar'
 import axios from 'axios'
+import Swal from 'sweetalert2';
 
 const Detail=({abuelos}) =>{
     const {nombre} = useParams()
@@ -11,18 +12,39 @@ const Detail=({abuelos}) =>{
     })
 
     const handleDeleteClick = () => {
-      // Realizar la petición DELETE a la API con el ID proporcionado
-      axios.delete(`http://localhost:3000/abuelo/${findActivos._id}`)
+      Swal.fire({
+        title: '¿Estás seguro de eliminar?',
+        text: "Estás a punto de perder a este abuelo",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, eliminar!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          axios.delete(`http://localhost:3000/abuelo/${findActivos._id}`)
         .then((response) => {
           console.log('Elemento eliminado con éxito:', response.data);
-          window.location.href = "/activos";
-          // Puedes realizar alguna acción adicional aquí si lo deseas, como actualizar la lista de elementos, etc.
         })
         .catch((error) => {
           console.error('Error al eliminar el elemento:', error);
         });
+    
+          Swal.fire(
+            'Eliminado!',
+            'Tu abuelo fue eliminado.',
+            'success'
+            )
+            setTimeout(() => {
+              window.location.href = "/"
+          }, 2000);
+
+        }
+      })
+      
     };
     
+
   return (
     <div className='div-card'>
     <Navbar/>
@@ -54,7 +76,7 @@ const Detail=({abuelos}) =>{
         <p>Comentarios: {findActivos.comentario}</p>
     </div>
     <button onClick={handleDeleteClick}>Eliminar</button>
-    <button>Modificar</button>
+     <Link to={`/editAbuelo/${findActivos._id}`}> <button>Modificar</button></Link>
     </div>
 
   );

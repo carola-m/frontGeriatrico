@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Navbar from '../Nav/Navbar';
 import './Ingresos.css'
 import axios from 'axios';
+import Swal from 'sweetalert2';
 
 const initial_state = {
     fechaIngreso: "",
@@ -90,8 +91,15 @@ const Ingresos = (value) => {
 
     axios.post('http://localhost:3000/abuelo', formData)
           .then((res) => {
+            Swal.fire(
+              'Buen trabajo!',
+              'Abuelo creado con éxito!',
+              'success'
+            )
               console.log("res")
-              window.location.href = "/activos";
+              setTimeout(() => {
+                window.location.href = "/activos"
+            }, 2000);
           })
   }
 return (
@@ -141,7 +149,7 @@ return (
   <input type="text" id="nombre" name="autorizadoSalir" onChange={handleInput} value={formState.autorizadoSalir}/>
 
   <label htmlFor="nombre">Nombre y apellido del familiar responsable:</label>
-  <input type="text" id="nombre" name="nombreParientes" onChange={handleInput} value={formState.nombrePariente}/>
+  <input type="text" id="nombre" name="nombreParientes" onChange={handleInput} value={formState.nombreParientes}/>
   
   <label htmlFor="number">Documento del familiar:</label>
   <input type="number" id="number" name="documentoPariente" onChange={handleInput} value={formState.documentoPariente}/>
@@ -150,7 +158,7 @@ return (
   <input type="text" id="nombre" name="parentezco" onChange={handleInput} value={formState.parentezco}/>
 
   <label htmlFor="nombre">Domicilio:</label>
-  <input type="text" id="nombre" name="domicilio" onChange={handleInput} value={formState.domicilio}/>
+  <input type="text" id="nombre" name="domicilio" onChange={handleInput} value={formState.domicilioPariente}/>
 
   <label htmlFor="number">Telefono 1:</label>
   <input type="number" id="number" name="telefono1" onChange={handleInput} value={formState.telefono1}/>

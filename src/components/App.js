@@ -9,13 +9,10 @@ import Login from './Login/Login';
 import Activos from './AbuelosActivos/Activos';
 import Pasivos from './Pasivos/Pasivos';
 import Detail from './Detail/Detail';
-
-
+import Edit from './Edit/Edit';
 
 function App() {
   const [listaAbuelos, setListaAbuelos] = useState ([]);
- 
-  
  
   const url = "http://localhost:3000/abuelo";
   useEffect(() => {
@@ -71,6 +68,7 @@ return(
 <Route path="/activos/:nombre" element={<Detail abuelos={listaAbuelos}/>}/>
 <Route path="/pasivos" element={<Pasivos abuelos={listaAbuelos}/>}/>
 <Route path="/pasivos/:nombre" element={<Detail abuelos={listaAbuelos}/>}/>
+<Route path="/editAbuelo/:id" element={<Edit/>}/>
 <Route path="/login" element={<Login/>}/>
 </Routes>
 </div>)
