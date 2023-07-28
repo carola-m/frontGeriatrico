@@ -4,12 +4,17 @@ import './Detail.css'
 import Navbar from '../Nav/Navbar'
 import axios from 'axios'
 import Swal from 'sweetalert2';
+import user from '../../imagenes/abueloUser.jpg'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
 
 const Detail=({abuelos}) =>{
-    const {nombre} = useParams()
+    const {id} = useParams()
+    //console.log("useParams: " , useParams())
     const findActivos = abuelos.find((item) =>{
-        return item.nombre === nombre
+        return item._id === id
     })
+
 
     const handleDeleteClick = () => {
       Swal.fire({
@@ -49,7 +54,11 @@ const Detail=({abuelos}) =>{
     <div className='div-card'>
     <Navbar/>
     <div className='card-detail'>
-        <img src={findActivos.perfil} width={100} alt='foto' />
+    
+    {findActivos.perfil && findActivos.perfil.includes("cloudinary") ? (
+      <img src={findActivos.perfil} width={200} alt='foto' />) : null}
+      {!findActivos.perfil || !findActivos.perfil.includes("cloudinary") ? (<img src={user}  width={120} alt='fotoPerfil'/>) : null}
+        <p>Fecha de ingreso: {findActivos.fechaIngreso ? (findActivos.fechaIngreso) : null}</p>
         <h3>{findActivos.nombre} {findActivos.apellido}</h3>
         <p>Numero de documento: {findActivos.documento}</p>
         <p>Fecha de nacimiento: {findActivos.fechaNacimiento}</p>
@@ -68,10 +77,31 @@ const Detail=({abuelos}) =>{
         <p>Teléfono2: {findActivos.telefono2}</p>
         <p>Teléfono3: {findActivos.telefono3}</p>
         <p>Email: {findActivos.email}</p>
-        <p>Foto del frente del documento: <img src={findActivos.documentoFrente} width={300} height={200} alt='foto' /></p>  
-        <p>Foto del dorso del documento: <img src={findActivos.documentoDorso} width={300} height={200} alt='foto' /></p> 
-        <p>Foto del frente del carnet obra social: <img src={findActivos.prepagaFrente} width={300} height={200}alt='foto' /></p> 
-        <p>Foto del dorso del carnet obra social: <img src={findActivos.prepagaDorso} width={300} height={200} alt='foto' /></p> 
+
+        <p>Foto del frente del documento:  {findActivos.documentoFrente && findActivos.documentoFrente.includes("cloudinary") ? (
+                    <img src={findActivos.documentoFrente} width={300} height={200} alt='foto' />
+                  ) : null}
+                  {!findActivos.documentoFrente || !findActivos.documentoFrente.includes("cloudinary") ? (
+                     <FontAwesomeIcon icon={faTriangleExclamation} size="lg" style={{color: "#e40733"}} /> 
+                  ) : null}</p>
+        <p>Foto del dorso del documento:  {findActivos.documentoDorso && findActivos.documentoDorso.includes("cloudinary") ? (
+                <img src={findActivos.documentoDorso} width={300} height={200} alt='foto'/>
+                  ) : null}
+                  {!findActivos.documentoDorso || !findActivos.documentoDorso.includes("cloudinary") ? (
+                     <FontAwesomeIcon icon={faTriangleExclamation} size="lg" style={{color: "#e40733"}} /> 
+                  ) : null}</p> 
+        <p>Foto del frente del carnet obra social:  {findActivos.prepagaFrente && findActivos.prepagaFrente.includes("cloudinary") ? (
+                <img src={findActivos.prepagaFrente} width={300} height={200} alt='foto'/>
+                ) : null}
+                {!findActivos.prepagaFrente || !findActivos.prepagaFrente.includes("cloudinary") ? ( 
+                <FontAwesomeIcon icon={faTriangleExclamation} size="lg" style={{color: "#e40733"}} /> 
+                ) : null} </p> 
+        <p>Foto del dorso del carnet obra social:   {findActivos.prepagaDorso && findActivos.prepagaDorso.includes("cloudinary") ? (
+                <img src={findActivos.prepagaDorso} width={300} height={200} alt='foto'/>
+                  ) : null}
+                  {!findActivos.prepagaDorso || !findActivos.prepagaDorso.includes("cloudinary") ? (
+                    <FontAwesomeIcon icon={faTriangleExclamation} size="lg" style={{color: "#e40733"}} /> 
+                  ) : null}</p> 
         <p>Estado: {findActivos.estado}</p>
         <p>Comentarios: {findActivos.comentario}</p>
     </div>

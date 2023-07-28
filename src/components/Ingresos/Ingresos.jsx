@@ -18,7 +18,7 @@ const initial_state = {
     nombreParientes: "",
     documentoPariente: "",
     parentezco: "",
-    domicilio: "",
+    domicilioPariente: "",
     telefono1: "",
     telefono2: "",
     telefono3: "",
@@ -74,10 +74,10 @@ const Ingresos = (value) => {
     formData.append ('servicioEmergencia', formState.servicioEmergencia)
     formData.append ('telefonoEmergencia', formState.telefonoEmergencia)
     formData.append ('autorizadoSalir', formState.autorizadoSalir)
-    formData.append ('nombrePariente', formState.nombrePariente)
+    formData.append ('nombreParientes', formState.nombreParientes)
     formData.append ('documentoPariente', formState.documentoPariente)
     formData.append ('parentezco', formState.parentezco)
-    formData.append ('domiiclio', formState.domiiclio)
+    formData.append ('domicilioPariente', formState.domicilioPariente)
     formData.append ('telefono1', formState.telefono1)
     formData.append ('telefono2', formState.telefono2)
     formData.append ('telefono3', formState.telefono3)
@@ -158,7 +158,7 @@ return (
   <input type="text" id="nombre" name="parentezco" onChange={handleInput} value={formState.parentezco}/>
 
   <label htmlFor="nombre">Domicilio:</label>
-  <input type="text" id="nombre" name="domicilio" onChange={handleInput} value={formState.domicilioPariente}/>
+  <input type="text" id="nombre" name="domicilioPariente" onChange={handleInput} value={formState.domicilioPariente}/>
 
   <label htmlFor="number">Telefono 1:</label>
   <input type="number" id="number" name="telefono1" onChange={handleInput} value={formState.telefono1}/>

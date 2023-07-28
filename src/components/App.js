@@ -65,9 +65,9 @@ return(
 <Route path="/" element={<Home/>}/>
 <Route path="/ingresos" element={<Ingresos/>}/>
 <Route path="/activos" element={<Activos abuelos={listaAbuelos}/>}/>
-<Route path="/activos/:nombre" element={<Detail abuelos={listaAbuelos}/>}/>
+<Route path="/activos/:id" element={<Detail abuelos={listaAbuelos}/>}/>
 <Route path="/pasivos" element={<Pasivos abuelos={listaAbuelos}/>}/>
-<Route path="/pasivos/:nombre" element={<Detail abuelos={listaAbuelos}/>}/>
+<Route path="/pasivos/:id" element={<Detail abuelos={listaAbuelos}/>}/>
 <Route path="/editAbuelo/:id" element={<Edit/>}/>
 <Route path="/login" element={<Login/>}/>
 </Routes>
