@@ -107,6 +107,7 @@ const Detail=({abuelos}) =>{
     </div>
     <button onClick={handleDeleteClick}>Eliminar</button>
      <Link to={`/editAbuelo/${findActivos._id}`}> <button>Modificar</button></Link>
+     <Link to={'/'}><button>Cancelar</button></Link>
     </div>
 
   );

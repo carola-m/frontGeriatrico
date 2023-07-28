@@ -3,6 +3,7 @@ import Navbar from '../Nav/Navbar';
 import './Ingresos.css'
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 
 const initial_state = {
     fechaIngreso: "",
@@ -191,6 +192,7 @@ return (
   <input type="text" id="estado" name="estado" placeholder='activo o inactivo' onChange={handleInput} value={formState.estado}/>
   
   <input className='boton' type="submit" value="Enviar" name='submit' id='boton' onClick={handleClick}/>
+  <Link to={'/'}><button>Cancelar</button></Link>
   </form>
       
   </div>
