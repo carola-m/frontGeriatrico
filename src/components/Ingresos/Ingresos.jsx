@@ -35,6 +35,11 @@ const initial_state = {
 const Ingresos = (value) => {
   const [formState, setFormState] = useState(initial_state);
   const [imagen, setImagen] = useState("");
+  const [urlPerfil, seturlPerfil] = useState("");
+  const [urlDocFrente, seturlDocFrente] = useState("");
+  const [urlDocDorso, seturlDocDorso] = useState("");
+  const [urlPrepFrente, seturlPrepFrente] = useState("");
+  const [urlPrepDorso, seturlPrepDorso] = useState("");
 
   const handleInput = (ev) => {
       const { name, value } = ev.target;
@@ -44,18 +49,47 @@ const Ingresos = (value) => {
 
   const handleInput1 = (event) => {
     setImagen({ ...imagen, perfil: event.target.files[0] })
+
+    if (event.target.files[0])
+       seturlPerfil(URL.createObjectURL(event.target.files[0]))       
+    else   
+       seturlPerfil("")       
   }
+
   const handleInput2 = (event) => {
     setImagen({ ...imagen, documentoFrente: event.target.files[0] })
+
+    if (event.target.files[0])
+       seturlDocFrente(URL.createObjectURL(event.target.files[0]))       
+    else   
+       seturlDocFrente("")     
   }
+
   const handleInput3 = (event) => {
     setImagen({ ...imagen, documentoDorso: event.target.files[0] })
+
+    if (event.target.files[0])
+       seturlDocDorso(URL.createObjectURL(event.target.files[0]))       
+    else   
+       seturlDocDorso("")     
   }
+
   const handleInput4 = (event) => {
     setImagen({ ...imagen, prepagaFrente: event.target.files[0] })
+
+    if (event.target.files[0])
+       seturlPrepFrente(URL.createObjectURL(event.target.files[0]))       
+    else   
+       seturlPrepFrente("")     
   }
+
   const handleInput5 = (event) => {
     setImagen({ ...imagen, prepagaDorso: event.target.files[0] })
+
+    if (event.target.files[0])
+       seturlPrepDorso(URL.createObjectURL(event.target.files[0]))       
+    else   
+       seturlPrepDorso("")     
   }
 
 
@@ -90,7 +124,7 @@ const Ingresos = (value) => {
     formData.append ('comentario', formState.comentario)
     formData.append ('estado', formState.estado)
 
-    axios.post('http://localhost:3000/abuelo', formData)
+    axios.post('http://localhost:5201/abuelo', formData)
           .then((res) => {
             Swal.fire(
               'Buen trabajo!',
@@ -115,7 +149,8 @@ return (
 
   <label htmlFor="imagen">foto de perfil:</label>
   <input type="file" id="imagen" name="perfil" multiple onChange={handleInput1}/>
-
+  {urlPerfil ? (<img src={urlPerfil} width={300} height={200} alt='fotoPerfil'/> ) : null}
+  
   <label htmlFor="nombre">Nombre:</label>
   <input type="text" id="nombre" name="nombre" onChange={handleInput} value={formState.nombre}/>
 
@@ -175,15 +210,19 @@ return (
 
   <label htmlFor="imagen">Foto del frente del documento:</label>
   <input type="file" id="imagen" name="imagen" onChange={handleInput2}/>
+  {urlDocFrente ? (<img src={urlDocFrente} width={300} height={200} alt='fotoPerfil'/> ) : null}
 
   <label htmlFor="imagen">Foto del dorso del documento:</label>
   <input type="file" id="imagen" name="imagen" onChange={handleInput3}/>
+  {urlDocDorso ? (<img src={urlDocDorso} width={300} height={200} alt='fotoPerfil'/> ) : null}
 
   <label htmlFor="imagen">Foto del frente del carnet obra social:</label>
   <input type="file" id="imagen" name="imagen" onChange={handleInput4}/>
+  {urlPrepFrente ? (<img src={urlPrepFrente} width={300} height={200} alt='fotoPerfil'/> ) : null}
 
   <label htmlFor="imagen">Foto del dorso del carnet obra social:</label>
   <input type="file" id="imagen" name="imagen" onChange={handleInput5}/>
+  {urlPrepDorso ? (<img src={urlPrepDorso} width={300} height={200} alt='fotoPerfil'/> ) : null}
 
   <label htmlFor="comentario">Comentario:</label>
   <textarea id="comentario" name="comentario" onChange={handleInput} value={formState.comentario}></textarea>
