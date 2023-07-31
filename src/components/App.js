@@ -14,7 +14,9 @@ import Edit from './Edit/Edit';
 function App() {
   const [listaAbuelos, setListaAbuelos] = useState ([]);
  
-  const url = "http://localhost:3000/abuelo";
+  // const url = `http://localhost:3000/abuelo`;
+  const url = `${process.env.REACT_APP_BACK_URL}/abuelo`;
+
   useEffect(() => {
   
    axios.get(url).then(

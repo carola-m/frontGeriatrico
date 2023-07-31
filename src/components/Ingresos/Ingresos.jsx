@@ -19,7 +19,7 @@ const initial_state = {
     nombreParientes: "",
     documentoPariente: "",
     parentezco: "",
-    domicilioPariente: "",
+    domicilio: "",
     telefono1: "",
     telefono2: "",
     telefono3: "",
@@ -78,7 +78,7 @@ const Ingresos = (value) => {
     formData.append ('nombreParientes', formState.nombreParientes)
     formData.append ('documentoPariente', formState.documentoPariente)
     formData.append ('parentezco', formState.parentezco)
-    formData.append ('domicilioPariente', formState.domicilioPariente)
+    formData.append ('domicilio', formState.domicilio)
     formData.append ('telefono1', formState.telefono1)
     formData.append ('telefono2', formState.telefono2)
     formData.append ('telefono3', formState.telefono3)
@@ -90,7 +90,7 @@ const Ingresos = (value) => {
     formData.append ('comentario', formState.comentario)
     formData.append ('estado', formState.estado)
 
-    axios.post('http://localhost:3000/abuelo', formData)
+    axios.post(`${process.env.REACT_APP_BACK_URL}/abuelo`, formData)
           .then((res) => {
             Swal.fire(
               'Buen trabajo!',
@@ -159,7 +159,7 @@ return (
   <input type="text" id="nombre" name="parentezco" onChange={handleInput} value={formState.parentezco}/>
 
   <label htmlFor="nombre">Domicilio:</label>
-  <input type="text" id="nombre" name="domicilioPariente" onChange={handleInput} value={formState.domicilioPariente}/>
+  <input type="text" id="nombre" name="domicilio" onChange={handleInput} value={formState.domicilio}/>
 
   <label htmlFor="number">Telefono 1:</label>
   <input type="number" id="number" name="telefono1" onChange={handleInput} value={formState.telefono1}/>

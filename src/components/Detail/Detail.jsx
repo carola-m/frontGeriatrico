@@ -27,7 +27,7 @@ const Detail=({abuelos}) =>{
         confirmButtonText: 'Si, eliminar!'
       }).then((result) => {
         if (result.isConfirmed) {
-          axios.delete(`http://localhost:3000/abuelo/${findActivos._id}`)
+          axios.delete(`${process.env.REACT_APP_BACK_URL}/abuelo/${findActivos._id}`)
         .then((response) => {
           console.log('Elemento eliminado con éxito:', response.data);
         })
@@ -69,7 +69,7 @@ const Detail=({abuelos}) =>{
         <p>Servicio de emergencia: {findActivos.servicioEmergencia}</p>
         <p>Teléfono de emergencia: {findActivos.telefonoEmergencia}</p>
         <p>¿Autorizado a salir?: {findActivos.autorizadoSalir}</p>
-        <p>Familiar a cargo: {findActivos.nombrePariente}</p>
+        <p>Familiar a cargo: {findActivos.nombreParientes}</p>
         <p>Número de documento: {findActivos.documentoPariente}</p>
         <p>Parentezco: {findActivos.parentezco}</p>
         <p>Domicilio: {findActivos.domicilio}</p>

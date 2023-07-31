@@ -37,7 +37,7 @@ const Edit = () => {
     formData.append ('nombreParientes', newdata.nombreParientes)
     formData.append ('documentoPariente', newdata.documentoPariente)
     formData.append ('parentezco', newdata.parentezco)
-    formData.append ('domiiclioPariente', newdata.domiiclioPariente)
+    formData.append ('domicilio', newdata.domicilio)
     formData.append ('telefono1', newdata.telefono1)
     formData.append ('telefono2', newdata.telefono2)
     formData.append ('telefono3', newdata.telefono3)
@@ -50,7 +50,7 @@ const Edit = () => {
     formData.append ('estado', newdata.estado)
     
 
-    axios.put(`http://localhost:3000/abuelo/${id}`, formData).then((res) => {
+    axios.put(`${process.env.REACT_APP_BACK_URL}/abuelo/${id}`, formData).then((res) => {
       Swal.fire(
         'Buen trabajo!',
         'Adulto mayor modificado con éxito!',
@@ -65,7 +65,7 @@ const Edit = () => {
 };
   useEffect(() => {
   const getAbuelosById = async () => {
-    const res = await axios.get(`http://localhost:3000/abuelo/${id}`);
+    const res = await axios.get(`${process.env.REACT_APP_BACK_URL}/abuelo/${id}`);
     setAbuelo(res.data);
     //console.log ("get",abuelo);
   };
@@ -212,12 +212,12 @@ useEffect(() => {
               {...register('parentezco', { required: false })}
         />
 
-        <label htmlFor="domicilioPariente">Domicilio:</label>
+        <label htmlFor="domicilio">Domicilio:</label>
               <input 
               type="text" 
-              id="domicilioPariente"  
-              onChange={(ev) => setAbuelo({ ...abuelo, domicilioPariente: ev.target.value })}
-              {...register('domicilioPariente', { required: false })}
+              id="domicilio"  
+              onChange={(ev) => setAbuelo({ ...abuelo, domicilio: ev.target.value })}
+              {...register('domicilio', { required: false })}
         />
 
         <label htmlFor="telefono1">Telefono 1:</label>
